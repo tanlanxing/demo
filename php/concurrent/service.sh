@@ -1,4 +1,4 @@
-script_name=reactor.php
+script_name=accept.php
 
 case "$2" in
     7)
@@ -14,12 +14,12 @@ startup() {
 }
 
 stoped() {
-        ps aux | grep $script_name | grep -v grep | awk '{print $2}' | xargs kill    
+    ps aux | grep $script_name | grep -v grep | awk '{print $2}' | xargs kill
 }
 
 case "$1" in
     start)
-        startup
+        startup 
     ;;
 
     stop)

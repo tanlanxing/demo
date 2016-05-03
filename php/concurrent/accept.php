@@ -7,7 +7,7 @@ for ($i=0; $i < 32; $i++) {
 		while (true) {
 			$conn = stream_socket_accept($serv);
 			if ($conn == false) continue;
-			$request = fread( $conn);
+			$request = fread($conn, 4096);
 			fwrite($conn, $request);
 			fclose($conn);
 		}
