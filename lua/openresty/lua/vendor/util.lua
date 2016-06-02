@@ -12,15 +12,15 @@ print_struct = function(value,  prefix)
                 str = string.format("%s\n%s%s => (%s)%s", str, prefix, key, type(val), val)
             elseif type(val) == "boolean" then
                 if val then
-                    return string.format("%s\n%s%s => (boolean)true", str, prefix, key)
+                    str = string.format("%s\n%s%s => (boolean)true", str, prefix, key)
                 else
-                    return string.format("%s\n%s%s => (boolean)false", str, prefix, key)
+                    str = string.format("%s\n%s%s => (boolean)false", str, prefix, key)
                 end
             else
-                return string.format("%s\n%s%s => (type)%s", str, prefix, key, type(val))
+                str = string.format("%s\n%s%s => (type)%s", str, prefix, key, type(val))
             end
         end
-        return string.format("%s\n)", str)
+        return string.format("%s\n%s)", str, prefix:sub(5))
     elseif type(value) == "string" or type(value) == "number" then
         return string.format("(%s)%s", type(value), value)
     elseif type(value) == "boolean" then

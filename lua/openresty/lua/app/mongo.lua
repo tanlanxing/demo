@@ -41,7 +41,11 @@ end
 printTable(hosts)
 
 ngx.say("\nget primary server")
-local newconn = conn:getprimary ()
+local newconn, err = conn:getprimary ()
+if newconn == nil then
+    ngx.say(err)
+    ngx.exit(200)
+end
 printTable(newconn)
 
 ngx.say("\ncomplete exmple")
